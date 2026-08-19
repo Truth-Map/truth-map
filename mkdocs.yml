@@ -45,6 +45,7 @@ nav:
     - Purpose & Rules: about/purpose.md
     - What is locked: about/what-is-locked.md
     - Architecture: about/architecture.md
+    - Path A site build: about/path-a-build.md
     - How to contribute: about/contributing.md
     - Restricted Grok Session: contribute/session.md
     - Gatekeeping & Moderation: about/gatekeeping.md
@@ -161,6 +162,7 @@ nav:
   - Map & Network:
     - Interactive Map: map.md
     - Interactive Network: network.md
+    - Path A Preview: path-a-preview.md
 
 markdown_extensions:
   - tables
