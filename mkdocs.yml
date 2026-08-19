@@ -117,6 +117,8 @@ nav:
     - Henry Luce / C.D. Jackson: people/henry-luce-cd-jackson.md
     - James S. Copley: people/james-s-copley.md
     - C.L. Sulzberger: people/c-l-sulzberger.md
+  - Influencers:
+    - Overview: influencers/index.md
   - Organizations:
     - Overview: organizations/index.md
     - Clinton Foundations: organizations/clinton-foundations.md
@@ -140,7 +142,6 @@ nav:
     - Federalist Society: organizations/federalist-society.md
   - Media:
     - Overview: media/index.md
-    - Online Influencers: media/online-influencers.md
     - Ownership concentration: media/ownership-concentration.md
     - Twitter Files: media/twitter-files.md
   - Facilities:
