@@ -4,7 +4,37 @@
   <p class="ai-note">Research structure and quality gatekeeping assisted by Grok · Primary sources remain human-verified</p>
 </div>
 
-<div class="tm-section-label">Start here</div>
+<div class="tm-section-label">Interactive tools</div>
+
+<div class="tm-card-grid">
+
+<div class="tm-card">
+  <h3><a href="interactive-app.html">Cards</a></h3>
+  <p>30 SCHEMA-v1 cards with five-term labels, residual status, and filters.</p>
+  <div class="meta">Origins · Labs · Stock-trading · Epstein · Clinton · Influencers</div>
+</div>
+
+<div class="tm-card">
+  <h3><a href="interactive-map.html">Map</a></h3>
+  <p>Leaflet geographic view with layer and year filters. Kepler path for full time slider.</p>
+  <div class="meta">25-point v7 layer set · side panel · card links</div>
+</div>
+
+<div class="tm-card">
+  <h3><a href="interactive-graph.html">Network graph</a></h3>
+  <p>Interactive relationship graph of the same public cards.</p>
+  <div class="meta">30 nodes · 36 edges · type filter · side panel</div>
+</div>
+
+<div class="tm-card">
+  <h3><a href="interactive-contribute.html">Contribute</a></h3>
+  <p>Zero-identity tip form. Build a proposal package; gatekeeper review required.</p>
+  <div class="meta">Anonymous OK · five-term labels · primary sources first</div>
+</div>
+
+</div>
+
+<div class="tm-section-label">Browse the archive</div>
 
 <div class="tm-card-grid">
 
@@ -57,21 +87,9 @@
 </div>
 
 <div class="tm-card">
-  <h3><a href="timeline/">Timeline Hub</a></h3>
-  <p>Module chronological spines — Origins, Epstein, Stock Trading, Mockingbird, and more.</p>
-  <div class="meta">Index of residual-clean timelines · No single master chronology</div>
-</div>
-
-<div class="tm-card">
-  <h3><a href="map/">Map & Network</a></h3>
-  <p>Interactive geographic and relationship views.</p>
-  <div class="meta">Leaflet · vis-network · Kepler time slider</div>
-</div>
-
-<div class="tm-card">
-  <h3><a href="about/contributing/">Contribute</a></h3>
-  <p>Start a Restricted Grok Session or open a GitHub Issue. Everything is reviewed before it becomes official.</p>
-  <div class="meta">Grok session · Issues · anonymous OK</div>
+  <h3><a href="contribute/">Contribute hub</a></h3>
+  <p>Restricted Grok Session starter, tip form, and contribution rules.</p>
+  <div class="meta">Anonymous OK · proposal-only · gatekeeper review</div>
 </div>
 
 </div>
@@ -80,21 +98,22 @@
 
 ### How the layers work
 
-1. **Topics** — thematic hubs with multiple scored Angles  
-2. **Claims / Cases / People / Orgs / Facilities / Media / Influencers** — content types  
+1. **Interactive tools** — live cards, map, graph, and tip form  
+2. **Topics / Claims / Cases / People / Orgs / Facilities / Media / Influencers** — archive content  
 3. **Depth** — full research mirrored from the knowledge base as pages mature  
-4. **Contribute** — [How to contribute / start a Restricted Grok Session](about/contributing/) · or [open an Issue](https://github.com/Truth-Map/truth-map/issues/new/choose)
+4. **Contribute** — [tip form](interactive-contribute.html) · [hub](contribute/) · [GitHub Issue](https://github.com/Truth-Map/truth-map/issues/new)
 
 ### Core rules
 
 1. Primary sources first  
 2. Clear labels: **True** · **Likely but Unproven** · **Contested** · **Highly Unlikely** · **False**  
 3. Evidence for and against  
-4. No doxxing, no illegal material, no speculation as fact  
-5. Contributions welcome and reviewed  
+4. Association ≠ participation, knowledge, or control  
+5. No doxxing, no illegal material, no speculation as fact  
+6. Contributions welcome and reviewed  
 
-### Residual status (2026-08-18)
+### Hosting (Path A)
 
-High-visibility modules residual-clean at current public-primary depth include Influencers & Digital Narrative (elevated to top-level), Epstein foundation + financial surface, Clinton Network core facts, Mockingbird documented layer, stock-trading core, and Iran / Axis-Proxy modules. Open residuals (full 2008 Clinton MOU PDF, systematic Epstein Transparency Act extraction, etc.) remain tracked in the research knowledge base and are shown with status labels rather than hidden.
+Public surface is static on **GitHub Pages** (`truth-map.github.io/truth-map`). No required accounts for readers. No third-party trackers on the interactive tools. Custom domain remains optional.
 
 **Source of truth:** [GitHub](https://github.com/Truth-Map/truth-map)
