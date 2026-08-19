@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Truth Map — Network Graph</title>
+<style>
+:root{--bg:#0f1115;--card:#1a1d24;--text:#e6e8ec;--muted:#9aa3b2;--border:#2a2f3a}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+header,footer{max-width:1200px;margin:0 auto;padding:1rem 1.2rem}
+h1{font-size:1.3rem;margin:0 0 .2rem}.sub{color:var(--muted);font-size:.88rem}
+.legend{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.7rem 1rem;font-size:.84rem;color:#c5cad3;max-width:1200px;margin:0 auto 1rem}
+.wrap{max-width:1200px;margin:0 auto;padding:0 1.2rem 1rem;display:grid;grid-template-columns:1fr 300px;gap:1rem}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}}
+.controls{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.7rem;grid-column:1/-1}
+label{color:var(--muted);font-size:.82rem}select,button{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.3rem .55rem;font-size:.88rem}button{cursor:pointer}
+#cy{height:520px;width:100%;border-radius:10px;border:1px solid var(--border);background:#12151b}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.9rem 1rem;min-height:180px}
+.panel h2{font-size:1rem;margin:0 0 .35rem}.panel .meta{font-size:.78rem;color:var(--muted);margin-bottom:.45rem}.panel .desc{font-size:.88rem;color:#c5cad3}
+.panel .cardlink{display:inline-block;margin-top:.65rem;padding:.35rem .55rem;background:#252a35;border-radius:6px;color:#7ec8ff;text-decoration:none;font-size:.82rem}
+.panel .empty{color:var(--muted);font-size:.88rem}
+.swatch{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:3px;vertical-align:middle}
+footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.7rem;margin-top:1rem}a{color:#9aa3b2}
+.note{font-size:.8rem;color:var(--muted);margin:.35rem 0;grid-column:1/-1}
+.pill{display:inline-block;font-size:.68rem;font-weight:600;padding:.1rem .35rem;border-radius:999px;color:#0f1115;margin-right:.2rem}
+.pill.T{background:#2ecc71}.pill.C{background:#f1c40f}.pill.F{background:#e74c3c}.pill.L{background:#3498db}
+</style></head><body>
+<header>
+<h1>Truth Map — Network Graph</h1>
+<p class="sub">Phase 5 · Cytoscape.js · filter by type · click node for side panel</p>
+</header>
+<div class="legend" style="padding-left:1.2rem;padding-right:1.2rem">
+<strong>How to read this.</strong> Nodes are public SCHEMA-v1 cards. Edges are documented cross-links (not proof of control or collusion). Association ≠ participation, knowledge, or control.
+</div>
+<div class="wrap">
+<div class="controls">
+<label>Type</label>
+<select id="ft"><option value="all">All types</option>
+<option value="claim">Claim</option><option value="person">Person</option><option value="organization">Organization</option>
+<option value="facility">Facility</option><option value="event">Event</option><option value="influencer">Influencer</option>
+</select>
+<button type="button" id="reset">Reset view</button>
+<span id="count" style="margin-left:auto;color:var(--muted);font-size:.82rem"></span>
+</div>
+<div>
+<div id="cy"></div>
+<p class="note">
+<span class="swatch" style="background:#f1c40f"></span>Claim
+<span class="swatch" style="background:#3498db"></span>Person
+<span class="swatch" style="background:#9b59b6"></span>Organization
+<span class="swatch" style="background:#e74c3c"></span>Facility
+<span class="swatch" style="background:#2ecc71"></span>Event
+<span class="swatch" style="background:#e67e22"></span>Influencer
+</p>
+</div>
+<aside class="panel" id="panel"><p class="empty">Click a node for details.</p></aside>
+</div>
+<footer>SCHEMA-v1 · Phase 5 · <a href="interactive-app.html">Cards</a> · <a href="interactive-map.html">Map</a> · <a href="./">Main site</a></footer>
+<script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+<script>
+window.__G__={"nodes":[{"id":"C-02","label":"The COVID lab-leak idea is just a conspiracy theory","type":"claim","card_label":"False","summary":"In early 2020 major journals, officials, and platforms treated the laboratory-origin hypothesis as fringe. Private records show scientists took lab scenarios seriously.","residual":"none"},{"id":"C-03","label":"NIH has not ever and does not now fund gain-of-function research at the Wuhan Institute of Virology","type":"claim","card_label":"Contested","summary":"Fauci and NIH stated NIH never funded GOF at WIV. Contested on definition and documented chimeric work under EcoHealth subawards.","residual":"parked"},{"id":"event-lancet-letter-2020","label":"The Lancet Letter (19 February 2020)","type":"event","card_label":"True","summary":"Organized by Peter Daszak; 27 signatories. Condemned non-natural-origin claims as conspiracy theories.","residual":"none"},{"id":"event-proximal-origin-2020","label":"The Proximal Origin of SARS-CoV-2","type":"event","card_label":"True","summary":"Andersen et al. concluded SARS-CoV-2 is not a laboratory construct. Drafting overlapped private calls that took lab scenarios seriously.","residual":"none"},{"id":"entity-peter-daszak","label":"Peter Daszak","type":"person","card_label":"True","summary":"President of EcoHealth Alliance. PI on NIH bat-CoV grant with WIV subawards. Organized Lancet letter. Debarred by HHS.","residual":"none"},{"id":"entity-jeremy-farrar","label":"Jeremy Farrar","type":"person","card_label":"True","summary":"Wellcome Trust Director 2013-2023. Central convenor of early Feb 2020 origins calls.","residual":"none"},{"id":"entity-kristian-andersen","label":"Kristian G. Andersen","type":"person","card_label":"True","summary":"Lead author of Proximal Origin. Private communications assigned non-trivial lab-origin probability before the public paper.","residual":"none"},{"id":"org-ecohealth-alliance","label":"EcoHealth Alliance","type":"organization","card_label":"True","summary":"U.S. nonprofit; NIH grants with WIV subawards. Suspended then debarred by HHS.","residual":"none"},{"id":"org-wellcome-trust","label":"Wellcome Trust","type":"organization","card_label":"True","summary":"Independent global biomedical foundation. Farrar was Director during the early origins window.","residual":"none"},{"id":"facility-wiv","label":"Wuhan Institute of Virology (WIV)","type":"facility","card_label":"True","summary":"Premier Chinese SARS-related CoV research center; BSL-4. Central node via bat-CoV work and EcoHealth/NIH subawards.","residual":"none"},{"id":"facility-usamriid-fort-detrick","label":"USAMRIID / Fort Detrick","type":"facility","card_label":"True","summary":"U.S. Army BSL-4. Primary U.S. military comparative high-containment node to WIV.","residual":"none"},{"id":"facility-galveston-national-laboratory","label":"Galveston National Laboratory","type":"facility","card_label":"True","summary":"NIAID NBL BSL-4. Documented collaboration and MoU with WIV.","residual":"none"},{"id":"facility-neidl-boston","label":"NEIDL — Boston University","type":"facility","card_label":"True","summary":"Second NIAID National Biocontainment Laboratory. BSL-4 approved 2017.","residual":"none"},{"id":"facility-cdc-atlanta-high-containment","label":"CDC Atlanta High-Containment Laboratories","type":"facility","card_label":"True","summary":"CDC BSL-4 labs; one of two WHO-authorized live variola repositories.","residual":"none"},{"id":"facility-niaid-intramural-high-containment","label":"NIAID / NIH Intramural High-Containment Cluster","type":"facility","card_label":"True","summary":"NIAID intramural BSL-4 capacity including IRF-Frederick and Rocky Mountain Laboratories.","residual":"none"},{"id":"C-07","label":"Pelosi household trades using non-public information","type":"claim","card_label":"Contested","summary":"Public PTRs document large repeated trades. No specific non-public-info to specific-trade chain established.","residual":"F1-watch"},{"id":"C-08","label":"Members of Congress systematically trade using non-public information","type":"claim","card_label":"Contested","summary":"High trade volume and sector overlaps documented. Systematic use of non-public information remains Contested.","residual":"parked"},{"id":"C-09","label":"The STOCK Act is inadequate","type":"claim","card_label":"True","summary":"Late filings are relatively common; formal public sanctions are rare.","residual":"none"},{"id":"C-10","label":"Members of Congress do not beat the market on aggregate post-STOCK Act","type":"claim","card_label":"Likely but Unproven","summary":"Post-STOCK Act academic work finds no reliable evidence of superior aggregate performance.","residual":"none"},{"id":"entity-jeffrey-epstein","label":"Jeffrey Epstein","type":"person","card_label":"True","summary":"Financier and convicted sex offender. Central figure in a long-running sex-trafficking operation.","residual":"none"},{"id":"entity-ghislaine-maxwell","label":"Ghislaine Maxwell","type":"person","card_label":"True","summary":"Long-time associate of Epstein. Convicted 2021 on federal sex-trafficking related counts.","residual":"none"},{"id":"facility-little-st-james","label":"Little St. James (Epstein Island)","type":"facility","card_label":"True","summary":"Private island in the U.S. Virgin Islands owned by Epstein. Frequently cited operational location in court records.","residual":"none"},{"id":"entity-bill-clinton","label":"Bill Clinton","type":"person","card_label":"True","summary":"42nd U.S. President. Clinton Foundation founder. Documented Epstein flight association 2002-2003.","residual":"none"},{"id":"entity-hillary-clinton","label":"Hillary Clinton","type":"person","card_label":"True","summary":"Senator; Secretary of State 2009-2013. Central figure in Foundation donor controversies during State tenure.","residual":"none"},{"id":"org-clinton-foundations","label":"Clinton Foundations","type":"organization","card_label":"True","summary":"Post-presidency philanthropic network. Foreign-government donations continued under 2008 MOU exceptions during State tenure.","residual":"none"},{"id":"C-14","label":"Uranium One / Rosatom and Clinton Foundation flows","type":"claim","card_label":"Contested","summary":"Rosatom acquired Uranium One via CFIUS. Strong quid-pro-quo framing is Contested/False as stated.","residual":"none"},{"id":"influencer-candace-owens","label":"Candace Owens","type":"influencer","card_label":"True","summary":"Conservative commentator. Daily Wire exit March 2024 coinciding with Israel/Gaza stance shift.","residual":"none"},{"id":"influencer-joe-rogan","label":"Joe Rogan","type":"influencer","card_label":"True","summary":"Host of The Joe Rogan Experience. High-reach platform for COVID policy, lab-leak, and free-speech debates.","residual":"none"},{"id":"influencer-tucker-carlson","label":"Tucker Carlson","type":"influencer","card_label":"True","summary":"Former Fox primetime host; independent since April 2023. Skeptical framing of Ukraine, intel, COVID measures.","residual":"none"},{"id":"influencer-trish-regan","label":"Trish Regan","type":"influencer","card_label":"True","summary":"Business and political commentator. Public influencers pilot set.","residual":"none"}],"edges":[{"source":"C-02","target":"entity-peter-daszak","label":"cross-ref"},{"source":"C-02","target":"org-ecohealth-alliance","label":"cross-ref"},{"source":"C-02","target":"facility-wiv","label":"cross-ref"},{"source":"C-02","target":"C-03","label":"cross-ref"},{"source":"C-03","target":"facility-wiv","label":"cross-ref"},{"source":"C-03","target":"org-ecohealth-alliance","label":"cross-ref"},{"source":"C-03","target":"entity-peter-daszak","label":"cross-ref"},{"source":"event-lancet-letter-2020","target":"C-02","label":"cross-ref"},{"source":"event-lancet-letter-2020","target":"entity-peter-daszak","label":"cross-ref"},{"source":"event-lancet-letter-2020","target":"entity-jeremy-farrar","label":"cross-ref"},{"source":"event-proximal-origin-2020","target":"C-02","label":"cross-ref"},{"source":"event-proximal-origin-2020","target":"entity-kristian-andersen","label":"cross-ref"},{"source":"entity-peter-daszak","target":"org-ecohealth-alliance","label":"president"},{"source":"entity-jeremy-farrar","target":"org-wellcome-trust","label":"director 2013-2023"},{"source":"org-ecohealth-alliance","target":"facility-wiv","label":"subaward channel"},{"source":"entity-peter-daszak","target":"event-lancet-letter-2020","label":"organized"},{"source":"entity-kristian-andersen","target":"event-proximal-origin-2020","label":"lead author"},{"source":"entity-jeremy-farrar","target":"event-proximal-origin-2020","label":"facilitated drafting"},{"source":"facility-neidl-boston","target":"facility-galveston-national-laboratory","label":"NIAID NBL pair"},{"source":"facility-niaid-intramural-high-containment","target":"facility-usamriid-fort-detrick","label":"Fort Detrick campus"},{"source":"facility-cdc-atlanta-high-containment","target":"facility-usamriid-fort-detrick","label":"LRN top-tier pair"},{"source":"C-07","target":"C-08","label":"related claim"},{"source":"C-07","target":"C-09","label":"related claim"},{"source":"C-07","target":"C-10","label":"related claim"},{"source":"C-08","target":"C-09","label":"related claim"},{"source":"C-09","target":"C-10","label":"related claim"},{"source":"entity-jeffrey-epstein","target":"entity-ghislaine-maxwell","label":"operational associate"},{"source":"entity-jeffrey-epstein","target":"facility-little-st-james","label":"owner / operator"},{"source":"entity-ghislaine-maxwell","target":"facility-little-st-james","label":"operational site"},{"source":"entity-bill-clinton","target":"entity-hillary-clinton","label":"married 1975-present"},{"source":"entity-bill-clinton","target":"org-clinton-foundations","label":"founder"},{"source":"entity-hillary-clinton","target":"org-clinton-foundations","label":"Foundation during State tenure"},{"source":"entity-bill-clinton","target":"entity-jeffrey-epstein","label":"flight association 2002-2003"},{"source":"C-14","target":"entity-bill-clinton","label":"related claim"},{"source":"C-14","target":"entity-hillary-clinton","label":"related claim"},{"source":"C-14","target":"org-clinton-foundations","label":"related claim"}]};
+var COLORS={claim:"#f1c40f",person:"#3498db",organization:"#9b59b6",facility:"#e74c3c",event:"#2ecc71",influencer:"#e67e22"};
+function esc(s){var d=document.createElement("div");d.textContent=s||"";return d.innerHTML}
+function lcPill(l){
+  if(l==="True")return '<span class="pill T">True</span>';
+  if(l==="False")return '<span class="pill F">False</span>';
+  if(l&&l.indexOf("Likely")!==-1)return '<span class="pill L">'+esc(l)+'</span>';
+  return '<span class="pill C">'+esc(l||"Contested")+'</span>';
+}
+function showPanel(n){
+  var d=n.data();
+  document.getElementById("panel").innerHTML='<h2>'+esc(d.fullLabel||d.id)+'</h2><div class="meta">'+esc(d.type)+' · '+lcPill(d.card_label)+' · residual: '+esc(d.residual)+'</div><div class="desc">'+esc(d.summary)+'</div><a class="cardlink" href="interactive-app.html">Open cards app → look for <code>'+esc(d.id)+'</code></a>';
+}
+var G=window.__G__;
+var elements=[];
+G.nodes.forEach(function(n){elements.push({data:{id:n.id,label:n.label,fullLabel:n.label,type:n.type,card_label:n.card_label,summary:n.summary,residual:n.residual}})});
+G.edges.forEach(function(e,i){elements.push({data:{id:"e"+i,source:e.source,target:e.target,label:e.label}})});
+var cy=cytoscape({
+  container:document.getElementById("cy"),
+  elements:elements,
+  style:[
+    {selector:"node",style:{"background-color":function(ele){return COLORS[ele.data("type")]||"#9aa3b2"},"label":"data(label)","color":"#e6e8ec","font-size":9,"text-wrap":"wrap","text-max-width":80,"text-valign":"bottom","text-margin-y":4,"width":14,"height":14,"border-width":1,"border-color":"#2a2f3a"}},
+    {selector:"edge",style:{"width":1.2,"line-color":"#3a4150","target-arrow-color":"#3a4150","target-arrow-shape":"triangle","curve-style":"bezier","arrow-scale":0.7}},
+    {selector:"node:selected",style:{"border-width":3,"border-color":"#7ec8ff"}}
+  ],
+  layout:{name:"cose",animate:false,padding:30,nodeRepulsion:6000,idealEdgeLength:80},
+  minZoom:0.3,maxZoom:3
+});
+document.getElementById("count").textContent=G.nodes.length+" nodes · "+G.edges.length+" edges";
+cy.on("tap","node",function(evt){showPanel(evt.target)});
+document.getElementById("ft").onchange=function(){
+  var t=this.value;
+  cy.nodes().forEach(function(n){n.style("display",(t==="all"||n.data("type")===t)?"element":"none")});
+  cy.edges().forEach(function(e){
+    var show=e.source().style("display")!=="none"&&e.target().style("display")!=="none";
+    e.style("display",show?"element":"none");
+  });
+};
+document.getElementById("reset").onclick=function(){
+  document.getElementById("ft").value="all";
+  cy.nodes().style("display","element");
+  cy.edges().style("display","element");
+  cy.layout({name:"cose",animate:false,padding:30,nodeRepulsion:6000,idealEdgeLength:80}).run();
+};
+</script>
+</body></html>
