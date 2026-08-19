@@ -1,1 +1,126 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Truth Map — Interactive</title>
+<style>
+:root{--bg:#0f1115;--card:#1a1d24;--text:#e6e8ec;--muted:#9aa3b2;--border:#2a2f3a;--true:#2ecc71;--contested:#f1c40f;--false:#e74c3c;--likely:#3498db;--unlikely:#e67e22}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:1.2rem}
+header,.controls,#map-list,#cards,#edges,.legend,footer{max-width:960px;margin:0 auto 1rem}
+h1{font-size:1.35rem;margin:0 0 .2rem}.sub{color:var(--muted);font-size:.88rem}
+.legend{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;font-size:.84rem;color:#c5cad3}
+.legend strong{color:var(--text)}.legend .row{margin:.28rem 0}
+.pill{display:inline-block;font-size:.68rem;font-weight:600;padding:.1rem .35rem;border-radius:999px;color:#0f1115;margin-right:.15rem}
+.pill.T{background:var(--true)}.pill.C{background:var(--contested)}.pill.F{background:var(--false)}.pill.L{background:var(--likely)}
+.controls{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+label{color:var(--muted);font-size:.82rem}select,button{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.3rem .55rem;font-size:.88rem}button{cursor:pointer}
+#count{color:var(--muted);font-size:.82rem;margin-left:auto}
+.map-item,.edge-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.5rem .8rem;margin-bottom:.3rem;display:flex;flex-wrap:wrap;gap:.4rem;align-items:baseline}
+.name{font-weight:600}.coords{font-family:ui-monospace,monospace;font-size:.78rem;color:var(--muted)}
+.layer,.rel{font-size:.65rem;text-transform:uppercase;padding:.08rem .3rem;border-radius:4px;background:#252a35;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.95rem 1.05rem;margin-bottom:.85rem}
+.card-header{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:.4rem}
+.id{font-family:ui-monospace,monospace;font-size:.75rem;color:var(--muted)}
+.type{font-size:.65rem;text-transform:uppercase;padding:.08rem .3rem;border-radius:4px;background:#252a35;color:var(--muted)}
+.label{font-size:.7rem;font-weight:600;padding:.12rem .4rem;border-radius:999px;color:#0f1115}
+.label.True{background:var(--true)}.label.Contested{background:var(--contested)}.label.False{background:var(--false)}
+.label.Likely{background:var(--likely)}.label.Unlikely{background:var(--unlikely)}
+.residual{font-size:.7rem;color:var(--muted);margin-left:auto}.residual.parked,.residual.F1-watch{color:#f1c40f}
+h2{font-size:1rem;margin:0 0 .25rem}.summary{color:#c5cad3;font-size:.88rem;margin:0 0 .45rem}
+.evidence{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.5rem 0;font-size:.82rem}
+@media(max-width:640px){.evidence{grid-template-columns:1fr}}
+.evidence h3{font-size:.68rem;text-transform:uppercase;margin:0 0 .2rem;color:var(--muted)}.for h3{color:var(--true)}.against h3{color:var(--false)}
+.evidence ul{margin:0;padding-left:1rem;color:#c5cad3}
+.meta{font-size:.75rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.4rem}
+.links span{display:inline-block;margin:.1rem .2rem .1rem 0;padding:.08rem .28rem;background:#252a35;border-radius:4px;color:#a0aec0;font-size:.75rem}
+footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.7rem;margin-top:1.5rem}a{color:#9aa3b2}
+.section-title{font-size:1rem;color:#c5cad3;margin:0 0 .4rem}
+.edge-item .src,.edge-item .tgt{font-family:ui-monospace,monospace;font-size:.8rem}
+.empty{color:var(--muted);padding:1rem 0}
+</style></head><body>
+<header>
+<h1>Truth Map — Interactive</h1>
+<p class="sub">SCHEMA-v1 · 30 cards · residual status visible · no trackers · Path A Phase 3</p>
+</header>
+<div class="legend">
+<div class="row"><strong>How to read this</strong></div>
+<div class="row"><span class="pill T">True</span> documented from primary/official sources · <span class="pill L">Likely</span> reasonable inference · <span class="pill C">Contested</span> live dispute · <span class="pill F">False</span> contradicted by record</div>
+<div class="row"><strong>Residual</strong> = what is still open or parked. Association ≠ participation, knowledge, or control.</div>
+<div class="row">Primary sources first. This is a research instrument, not a verdict machine.</div>
+</div>
+<section>
+<h2 class="section-title">Map-ready facilities</h2>
+<div id="map-list"></div>
+</section>
+<div class="controls">
+<label>Label</label>
+<select id="fl"><option value="all">All</option><option value="True">True</option><option value="Likely but Unproven">Likely but Unproven</option><option value="Contested">Contested</option><option value="Highly Unlikely">Highly Unlikely</option><option value="False">False</option></select>
+<label>Type</label>
+<select id="ft"><option value="all">All</option><option value="claim">Claim</option><option value="event">Event</option><option value="person">Person</option><option value="organization">Organization</option><option value="facility">Facility</option><option value="influencer">Influencer</option></select>
+<button type="button" id="reset">Reset</button>
+<span id="count"></span>
+</div>
+<div id="cards"><p class="empty">Loading data…</p></div>
+<section>
+<h2 class="section-title">Connections</h2>
+<p class="sub" style="margin-bottom:.5rem">Documented structure + card cross-links.</p>
+<div id="edges"></div>
+</section>
+<footer>
+SCHEMA-v1 frozen · 30-card public package · Operator anonymity preserved ·
+<a href="./">Main site</a> ·
+<a href="https://github.com/Truth-Map/truth-map">Source</a>
+</footer>
+<script>
+function esc(s){var d=document.createElement("div");d.textContent=s||"";return d.innerHTML}
+function lc(l){if(!l)return"Contested";if(l==="True")return"True";if(l==="False")return"False";if(l==="Contested")return"Contested";if(l.indexOf("Likely")!==-1)return"Likely";if(l.indexOf("Unlikely")!==-1)return"Unlikely";return"Contested"}
+function renderMap(nodes){
+  document.getElementById("map-list").innerHTML=(nodes||[]).map(function(n){
+    return '<div class="map-item"><span class="name">'+esc(n.name)+'</span><span class="layer">'+esc(n.layer_group||"")+'</span><span class="coords">'+esc(String(n.latitude)+", "+String(n.longitude))+'</span></div>';
+  }).join("");
+}
+function renderEdges(edges){
+  document.getElementById("edges").innerHTML=(edges||[]).map(function(e){
+    return '<div class="edge-item"><span class="src">'+esc(e.source)+'</span><span class="rel">'+esc(e.label||"link")+'</span><span class="tgt">'+esc(e.target)+'</span></div>';
+  }).join("");
+}
+function renderCards(cards){
+  document.getElementById("count").textContent=cards.length+" cards";
+  if(!cards.length){document.getElementById("cards").innerHTML='<p class="empty">No cards match the current filters.</p>';return}
+  document.getElementById("cards").innerHTML=cards.map(function(c){
+    var residual=c.residual_status||"none";
+    var rnote=c.residual_note?" — "+c.residual_note:"";
+    var links=(c.cross_links||[]).map(function(id){return"<span>"+esc(id)+"</span>"}).join("");
+    var evidence="";
+    var ef=c.evidence_for||[], ea=c.evidence_against||[];
+    if(c.type==="claim"&&(ef.length||ea.length)){
+      evidence='<div class="evidence"><div class="for"><h3>Evidence for</h3><ul>'+ef.map(function(t){return"<li>"+esc(t)+"</li>"}).join("")+'</ul></div><div class="against"><h3>Evidence against</h3><ul>'+ea.map(function(t){return"<li>"+esc(t)+"</li>"}).join("")+"</ul></div></div>";
+    }
+    var loc="";
+    if(c.location&&c.location.latitude!=null)loc='<div class="meta">Location: '+esc(String(c.location.latitude)+", "+String(c.location.longitude))+"</div>";
+    return '<article class="card"><div class="card-header"><span class="id">'+esc(c.id)+'</span><span class="type">'+esc(c.type)+'</span><span class="label '+lc(c.label)+'">'+esc(c.label)+'</span><span class="residual '+residual+'">residual: '+esc(residual+rnote)+'</span></div><h2>'+esc(c.title||c.id)+'</h2><p class="summary">'+esc(c.short_summary||"")+"</p>"+evidence+loc+'<div class="meta">Updated: '+esc(c.last_updated||"-")+" · Evidence window: "+esc(c.evidence_window||"-")+"</div>"+(links?'<div class="links">'+links+"</div>":"")+"</article>";
+  }).join("");
+}
+var ALL=[];
+function apply(){
+  var L=document.getElementById("fl").value, T=document.getElementById("ft").value;
+  renderCards(ALL.filter(function(c){return (L==="all"||c.label===L)&&(T==="all"||c.type===T)}));
+}
+document.getElementById("fl").onchange=apply;
+document.getElementById("ft").onchange=apply;
+document.getElementById("reset").onclick=function(){document.getElementById("fl").value="all";document.getElementById("ft").value="all";apply()};
+var base="interactive-data/";
+Promise.all([
+  fetch(base+"cards1.json").then(function(r){if(!r.ok)throw new Error("cards1 "+r.status);return r.json()}),
+  fetch(base+"cards2.json").then(function(r){if(!r.ok)throw new Error("cards2 "+r.status);return r.json()}),
+  fetch(base+"nodes.json").then(function(r){return r.ok?r.json():[]}).catch(function(){return[]}),
+  fetch(base+"edges.json").then(function(r){return r.ok?r.json():[]}).catch(function(){return[]})
+]).then(function(arr){
+  ALL=arr[0].concat(arr[1]);
+  renderMap(arr[2]);
+  renderEdges(arr[3]);
+  apply();
+}).catch(function(err){
+  document.getElementById("cards").innerHTML='<p class="empty">Could not load data ('+esc(err.message)+'). Check interactive-data/ files.</p>';
+});
+</script>
+</body></html>
