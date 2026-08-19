@@ -11,6 +11,7 @@ Entity cards created because an active Case, Claim, or Angle requires them.
 <div class="tm-card"><h3><a href="candace-owens/">Candace Owens</a></h3><p>Daily Wire exit (Mar 2024) · Israel/Gaza stance shift · influencer pilot.</p></div>
 <div class="tm-card"><h3><a href="joe-rogan/">Joe Rogan</a></h3><p>JRE · COVID/lab-leak platforming · Spotify deals · free-speech flashpoint.</p></div>
 <div class="tm-card"><h3><a href="tucker-carlson/">Tucker Carlson</a></h3><p>Fox exit (Apr 2023) · independent network · Ukraine/intel skepticism.</p></div>
+<div class="tm-card"><h3><a href="shawn-ryan/">Shawn Ryan</a></h3><p>Former SEAL + CIA GRS contractor · high-reach operator podcast · lab-leak & institutional-trust amplification.</p></div>
 <div class="tm-card"><h3><a href="bill-gates/">Bill Gates</a></h3><p>Foundation Chair · Cascade · WHO/GAVI/CEPI funding ecosystem.</p></div>
 <div class="tm-card"><h3><a href="elon-musk/">Elon Musk</a></h3><p>Tesla · SpaceX · X · xAI — cross-company controlling figure.</p></div>
 <div class="tm-card"><h3><a href="jeremy-farrar/">Jeremy Farrar</a></h3><p>Wellcome Director 2013–2023; WHO Chief Scientist; early-origins convening role.</p></div>

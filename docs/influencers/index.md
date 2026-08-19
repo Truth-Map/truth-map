@@ -2,7 +2,7 @@
 
 **Status:** Elevated to top-level public area 2026-08-18  
 **Last updated:** 2026-08-18  
-**Residual status:** Core carded set residual-clean at current public depth. First comparison page live. Further candidates deferred under tight-surface rule until clear new Claim/Case need.
+**Residual status:** Core carded set residual-clean at current public depth. Shawn Ryan added. Further candidates deferred under tight-surface rule until clear new Claim/Case need or residual-clean status.
 
 High-reach online voices shape what large audiences believe about COVID origins, vaccines, intelligence, elections, free speech, and institutional trust. Stance changes, funding models, and the ratio of primary-sourced claims versus pure opinion are material signals. This area treats those signals as first-class data.
 
@@ -47,6 +47,7 @@ We do **not** give people a single “score.” We surface a few readable signal
 | **Candace Owens** | YouTube, X, independent | Daily Wire exit (Mar 2024) tied to Israel/Gaza stance shift; COVID skepticism; free speech | Lev1 | [Card](../people/candace-owens/) |
 | **Joe Rogan** | Spotify / YouTube (JRE) | Guest-level origins & vaccine discussion; 2021–22 Spotify pressure flashpoint; free speech | Lev1 | [Card](../people/joe-rogan/) |
 | **Tucker Carlson** | Independent / X / podcast (post-Fox) | Fox exit (Apr 2023); Ukraine & intelligence skepticism; free speech | Lev1 | [Card](../people/tucker-carlson/) |
+| **Shawn Ryan** | YouTube / podcast (SRS), X | Former SEAL + CIA GRS contractor; lab-leak & institutional-trust amplification; high-reach operator platform | Lev1 slim | [Card](../people/shawn-ryan/) |
 
 Additional high-threshold candidates and the graded reference list live in the research knowledge base. Cards are promoted to this public surface only when residual-clean enough for the tight-surface rule.
 
@@ -59,7 +60,7 @@ These are **patterns visible in the public record**, not proof of coordination:
 - **Institutional Exit + Independent Monetization** — Carlson, Owens, Crowder (deal rejected)
 - **COVID / Origins / Vaccine Policy Density** — Rogan, Berenson, Weinstein, RFK Jr.
 - **Free Speech / Platform / Government–Platform Nexus** — Musk, Taibbi/Shellenberger, Rogan, Pool, Carlson, Owens
-- **Intelligence / Institutional Trust** — overlap with Gabbard declass and Mockingbird material
+- **Intelligence / Institutional Trust** — Shawn Ryan (operator background + platform), overlap with Gabbard declass and Mockingbird material
 - **Israel / Gaza / Antisemitism Framing** — Owens is the cleanest before/after case currently carded
 
 ---
