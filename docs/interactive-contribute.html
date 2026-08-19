@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Truth Map — Tip / Proposal Form</title>
+<style>
+:root{--bg:#0f1115;--card:#1a1d24;--text:#e6e8ec;--muted:#9aa3b2;--border:#2a2f3a}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:1.2rem}
+.wrap{max-width:720px;margin:0 auto}
+h1{font-size:1.3rem;margin:0 0 .2rem}.sub{color:var(--muted);font-size:.88rem;margin-bottom:1rem}
+.legend{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;font-size:.84rem;color:#c5cad3;margin-bottom:1rem}
+label{display:block;font-size:.82rem;color:var(--muted);margin:.7rem 0 .25rem}
+input,select,textarea{width:100%;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.45rem .6rem;font-size:.9rem;font-family:inherit}
+textarea{min-height:90px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+@media(max-width:600px){.row{grid-template-columns:1fr}}
+.actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+button{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.45rem .8rem;font-size:.9rem;cursor:pointer}
+button.primary{background:#1e3a5f;border-color:#2a5a8f;color:#d6e8ff}
+#out{margin-top:1rem;background:#12151b;border:1px solid var(--border);border-radius:8px;padding:.8rem;font-family:ui-monospace,monospace;font-size:.8rem;white-space:pre-wrap;color:#c5cad3;display:none}
+footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.7rem;margin-top:1.5rem}a{color:#9aa3b2}
+.note{font-size:.8rem;color:var(--muted);margin-top:.5rem}
+</style></head><body>
+<div class="wrap">
+<header>
+<h1>Truth Map — Tip / Proposal Form</h1>
+<p class="sub">Phase 6 · zero-identity draft · gatekeeper review required · nothing is published automatically</p>
+</header>
+<div class="legend">
+<strong>How this works.</strong> Fill the form. We build a plain-text package. You copy it into a GitHub Issue (or save it).
+No name is required. This page does not send data to any server.
+Association ≠ participation, knowledge, or control.
+</div>
+<form id="f" onsubmit="return false">
+<label>Type</label>
+<select id="type">
+<option value="New Evidence">New Evidence</option>
+<option value="Correction">Correction</option>
+<option value="New Claim proposal">New Claim proposal</option>
+<option value="New Case proposal">New Case proposal</option>
+<option value="Question / tip">Question / tip</option>
+</select>
+<label>Short title</label>
+<input id="title" maxlength="120" placeholder="One line — what is this about?"/>
+<label>What are you pointing at? (claim, person, event, file…)</label>
+<input id="target" maxlength="200" placeholder="e.g. C-03, facility-wiv, or a new claim sentence"/>
+<div class="row">
+<div>
+<label>Suggested label (if any)</label>
+<select id="label">
+<option value="">(none / unsure)</option>
+<option>True</option>
+<option>Likely but Unproven</option>
+<option>Contested</option>
+<option>Highly Unlikely</option>
+<option>False</option>
+</select>
+</div>
+<div>
+<label>Optional handle (recognition only)</label>
+<input id="handle" maxlength="40" placeholder="leave blank to stay fully anonymous"/>
+</div>
+</div>
+<label>Primary source(s)</label>
+<textarea id="sources" placeholder="URLs, document titles, dates, page numbers if possible"></textarea>
+<label>Plain-English summary of what the source shows</label>
+<textarea id="summary" placeholder="3–8 sentences. Separate what is solidly known from what is still argued."></textarea>
+<label>Evidence against / limitations (recommended)</label>
+<textarea id="against" placeholder="Counter-evidence, gaps, or why another label might fit"></textarea>
+<div class="actions">
+<button type="button" class="primary" id="build">Build package</button>
+<button type="button" id="copy">Copy package</button>
+<button type="button" id="issue">Open GitHub Issue</button>
+</div>
+<p class="note">GitHub requires an account to post an issue. The package text itself needs no identity. Prefer primary sources.</p>
+<pre id="out"></pre>
+</div>
+<footer class="wrap">
+SCHEMA-v1 · Phase 6 ·
+<a href="contribute/">Contribute hub</a> ·
+<a href="interactive-app.html">Cards</a> ·
+<a href="interactive-map.html">Map</a> ·
+<a href="interactive-graph.html">Graph</a>
+</footer>
+<script>
+function build(){
+  var type=document.getElementById("type").value;
+  var title=document.getElementById("title").value.trim()||"(untitled)";
+  var target=document.getElementById("target").value.trim()||"(not specified)";
+  var label=document.getElementById("label").value;
+  var handle=document.getElementById("handle").value.trim();
+  var sources=document.getElementById("sources").value.trim()||"(none listed)";
+  var summary=document.getElementById("summary").value.trim()||"(none)";
+  var against=document.getElementById("against").value.trim()||"(none listed)";
+  var pkg=[
+    "## Proposal: "+title,
+    "",
+    "**Type:** "+type,
+    "**Target:** "+target,
+    "**Suggested label:** "+(label||"(none / unsure)"),
+    "**Handle (optional):** "+(handle||"(anonymous)"),
+    "",
+    "### Summary",
+    summary,
+    "",
+    "### Primary sources",
+    sources,
+    "",
+    "### Evidence against / limitations",
+    against,
+    "",
+    "### Notes",
+    "- This is a proposal only. Gatekeeper review required before any official record change.",
+    "- Association ≠ participation, knowledge, or control.",
+    "- Generated from Truth Map tip form (no server submission)."
+  ].join("\n");
+  var out=document.getElementById("out");
+  out.style.display="block";
+  out.textContent=pkg;
+  return pkg;
+}
+document.getElementById("build").onclick=build;
+document.getElementById("copy").onclick=function(){
+  var pkg=build();
+  if(navigator.clipboard)navigator.clipboard.writeText(pkg);
+};
+document.getElementById("issue").onclick=function(){
+  var pkg=build();
+  var type=document.getElementById("type").value;
+  var title=document.getElementById("title").value.trim()||"Proposal";
+  var issueTitle=encodeURIComponent(type+": "+title);
+  var body=encodeURIComponent(pkg);
+  window.open("https://github.com/Truth-Map/truth-map/issues/new?title="+issueTitle+"&body="+body,"_blank","noopener");
+};
+</script>
+</body></html>
