@@ -1,35 +1,40 @@
-# Path A Interactive Preview
+# Path A Interactive
 
-This is the early interactive surface for the Path A site build (SCHEMA-v1).
+Data-driven Path A surface (SCHEMA-v1). Labeled cards, residual status, and map-ready facilities — separate from the MkDocs article pages.
 
-It is separate from the main MkDocs pages below. Use it to explore labeled cards, residual status, and map-ready facilities while the full static/hybrid site is still under construction.
+## Open it
 
-## Open the preview
+**Permanent URL (after deploy):**  
+**[https://truth-map.github.io/truth-map/interactive/](https://truth-map.github.io/truth-map/interactive/)**
 
-**[Launch Path A preview](https://htmlpreview.github.io/?https://github.com/Truth-Map/truth-map/blob/main/preview/site-scaffold.html)**
+**Fallback (always works):**  
+[Embedded preview via htmlpreview](https://htmlpreview.github.io/?https://github.com/Truth-Map/truth-map/blob/main/preview/site-scaffold.html)
 
-Or view source files: [preview/ on GitHub](https://github.com/Truth-Map/truth-map/tree/main/preview)
+Source: [`interactive/` on GitHub](https://github.com/Truth-Map/truth-map/tree/main/interactive)
 
 ## What you will see
 
 - Five-term labels: **True** · **Likely but Unproven** · **Contested** · **Highly Unlikely** · **False**
 - Residual status shown deliberately (not hidden)
-- Evidence for / against on core claims (C-02, C-03, and others)
-- Map-ready facility coordinates (WIV, USAMRIID, Galveston, NEIDL, CDC, NIAID cluster)
+- Evidence for / against on core claims
+- Map-ready facility coordinates
 - Filters by label and type
+- Cards loaded from `data/cards.json` (SCHEMA-v1)
 - No third-party trackers
+
+## Origins cluster currently included
+
+Claims C-02 / C-03 · Lancet Letter · Proximal Origin · Daszak · Farrar · Andersen · EcoHealth · Wellcome · WIV · USAMRIID · Galveston
 
 ## Build status (Path A)
 
 | Item | Status |
 |------|--------|
 | SCHEMA-v1 | Frozen |
-| Claim parser | Working |
-| Facility parser | Working |
-| Person parser | Started (Daszak, Farrar) |
-| GitHub preview | Live |
-| Full Astro/Next site | Not started |
-| Dedicated hosting | Later |
+| Claim / Facility / Person / Org parsers | Working (core) |
+| Origins sample cluster | Residual-clean |
+| Phase 3 data-driven site | Live under `interactive/` |
+| Permanent Pages URL | Wired via deploy workflow |
 
 ## Rules that still apply
 
@@ -37,8 +42,4 @@ Or view source files: [preview/ on GitHub](https://github.com/Truth-Map/truth-ma
 2. Contested stays Contested  
 3. Association ≠ participation / control  
 4. Public surface stays tight  
-5. Operator anonymity preserved on the preview surface  
-
----
-
-*This page is a bridge until the Path A site has its own permanent host URL.*
+5. Operator anonymity preserved  
