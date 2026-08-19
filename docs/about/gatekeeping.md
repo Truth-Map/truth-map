@@ -52,16 +52,17 @@ Each template requires:
 
 Pull Requests are also welcome if they follow the same standards and stay small and reviewable.
 
-## Evidence labels (reminder)
+## Evidence labels (current set)
 
 | Label | Meaning |
 |-------|---------|
-| **Confirmed / True** | Strong primary evidence, little reasonable dispute |
-| **Supported** | Good evidence, still incomplete or open questions remain |
-| **Contested** | Serious, good-faith disagreement exists in the record |
-| **Unsupported / False** | Weak, false, or presented in a way that misleads — and we show why |
+| **True** | Strong primary evidence; essentially settled |
+| **Likely but Unproven** | Good evidence, still incomplete |
+| **Contested** | Serious evidence-based disagreement remains |
+| **Highly Unlikely** | Strong evidence against |
+| **False** | Demonstrably wrong on primary sources |
 
-Always show evidence **for and against** when both exist.
+Always show evidence **for and against** when both exist. Contested stays Contested until primary documents move it.
 
 ## Why this matters
 
