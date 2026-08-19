@@ -33,6 +33,12 @@
 </div>
 
 <div class="tm-card">
+  <h3><a href="influencers/">Influencers</a></h3>
+  <p>High-reach online voices — stance timelines, funding, claim style, institutional exits, and narrative patterns.</p>
+  <div class="meta">Owens · Rogan · Carlson · clusters · comparison layer</div>
+</div>
+
+<div class="tm-card">
   <h3><a href="organizations/">Organizations</a></h3>
   <p>Elite forums, foundations, media companies, and research organizations required by active Cases.</p>
   <div class="meta">Clinton Foundations · Daily Wire · Gates · CFR · Bilderberg · WEF · more</div>
@@ -40,8 +46,8 @@
 
 <div class="tm-card">
   <h3><a href="media/">Media</a></h3>
-  <p>Intelligence–media nexus, ownership concentration, and high-reach online influencers.</p>
-  <div class="meta">Online Influencers · Mockingbird · Twitter Files · Ownership</div>
+  <p>Intelligence–media nexus, ownership concentration, and platform notes.</p>
+  <div class="meta">Mockingbird · Twitter Files · Ownership</div>
 </div>
 
 <div class="tm-card">
@@ -75,7 +81,7 @@
 ### How the layers work
 
 1. **Topics** — thematic hubs with multiple scored Angles  
-2. **Claims / Cases / People / Orgs / Facilities / Media** — content types  
+2. **Claims / Cases / People / Orgs / Facilities / Media / Influencers** — content types  
 3. **Depth** — full research mirrored from the knowledge base as pages mature  
 4. **Contribute** — [How to contribute / start a Restricted Grok Session](about/contributing/) · or [open an Issue](https://github.com/Truth-Map/truth-map/issues/new/choose)
 
@@ -89,6 +95,6 @@
 
 ### Residual status (2026-08-18)
 
-High-visibility modules residual-clean at current public-primary depth include Influencers & Digital Narrative (elevated), Epstein foundation + financial surface, Clinton Network core facts, Mockingbird documented layer, stock-trading core, and Iran / Axis-Proxy modules. Open residuals (full 2008 Clinton MOU PDF, systematic Epstein Transparency Act extraction, etc.) remain tracked in the research knowledge base and are shown with status labels rather than hidden.
+High-visibility modules residual-clean at current public-primary depth include Influencers & Digital Narrative (elevated to top-level), Epstein foundation + financial surface, Clinton Network core facts, Mockingbird documented layer, stock-trading core, and Iran / Axis-Proxy modules. Open residuals (full 2008 Clinton MOU PDF, systematic Epstein Transparency Act extraction, etc.) remain tracked in the research knowledge base and are shown with status labels rather than hidden.
 
 **Source of truth:** [GitHub](https://github.com/Truth-Map/truth-map)
