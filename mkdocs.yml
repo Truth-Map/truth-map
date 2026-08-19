@@ -162,7 +162,7 @@ nav:
   - Map & Network:
     - Interactive Map: map.md
     - Interactive Network: network.md
-    - Path A Preview: path-a-preview.md
+    - Path A Interactive: path-a-preview.md
 
 markdown_extensions:
   - tables
