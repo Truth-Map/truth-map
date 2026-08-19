@@ -1,1 +1,84 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Truth Map Preview</title>
+<style>
+:root{--bg:#0f1115;--card:#1a1d24;--text:#e6e8ec;--muted:#9aa3b2;--border:#2a2f3a;--true:#2ecc71;--contested:#f1c40f;--false:#e74c3c}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:1.25rem}
+header,section,#cards,footer{max-width:900px;margin:0 auto 1.25rem}
+h1{font-size:1.4rem;margin:0 0 .25rem}.sub{color:var(--muted);font-size:.9rem}
+.map-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.6rem .9rem;margin-bottom:.4rem}
+.name{font-weight:600}.coords{font-family:ui-monospace,monospace;font-size:.8rem;color:var(--muted);margin-left:.5rem}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem 1.15rem;margin-bottom:1rem}
+.card-header{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin-bottom:.5rem}
+.id{font-family:ui-monospace,monospace;font-size:.8rem;color:var(--muted)}
+.type{font-size:.7rem;text-transform:uppercase;padding:.12rem .4rem;border-radius:4px;background:#252a35;color:var(--muted)}
+.label{font-size:.75rem;font-weight:600;padding:.18rem .5rem;border-radius:999px;color:#0f1115}
+.label.True{background:var(--true)}.label.Contested{background:var(--contested)}.label.False{background:var(--false)}
+.residual{font-size:.75rem;color:var(--muted);margin-left:auto}.residual.parked{color:#f1c40f}
+h2{font-size:1.05rem;margin:0 0 .35rem}.summary{color:#c5cad3;font-size:.92rem}
+.meta{font-size:.8rem;color:var(--muted);margin-top:.5rem;border-top:1px solid var(--border);padding-top:.5rem}
+footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.8rem}
+</style>
+</head>
+<body>
+<header>
+<h1>Truth Map — Preview</h1>
+<p class="sub">SCHEMA-v1 · five-term labels · residual status visible · no trackers · Path A build preview</p>
+</header>
+
+<section>
+<h2 style="font-size:1.05rem;color:#c5cad3">Map-ready facilities</h2>
+<p class="sub">Coordinates from the locked Kepler layer. Full interactive map comes with hosting.</p>
+<div class="map-item"><span class="name">Wuhan Institute of Virology (WIV)</span><span class="coords">30.3764, 114.2625</span></div>
+<div class="map-item"><span class="name">USAMRIID / Fort Detrick</span><span class="coords">39.438, -77.4234</span></div>
+<div class="map-item"><span class="name">Galveston National Laboratory</span><span class="coords">29.3105, -94.775</span></div>
+<div class="map-item"><span class="name">NEIDL (Boston University)</span><span class="coords">42.3365, -71.0725</span></div>
+<div class="map-item"><span class="name">CDC Atlanta High-Containment</span><span class="coords">33.799, -84.328</span></div>
+</section>
+
+<section id="cards">
+<article class="card">
+<div class="card-header"><span class="id">C-02</span><span class="type">claim</span><span class="label False">False</span><span class="residual none">residual: none</span></div>
+<h2>The COVID lab-leak idea is just a conspiracy theory</h2>
+<p class="summary">In early 2020 major journals, officials, and platforms treated the laboratory-origin hypothesis as a fringe conspiracy theory. Private contemporaneous records (including Fauci’s diary) show leading scientists took laboratory scenarios seriously at the same time.</p>
+<div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07</div>
+</article>
+
+<article class="card">
+<div class="card-header"><span class="id">C-03</span><span class="type">claim</span><span class="label Contested">Contested</span><span class="residual parked">residual: parked</span></div>
+<h2>NIH has not ever and does not now fund gain-of-function research at the Wuhan Institute of Virology</h2>
+<p class="summary">Fauci and NIH stated that NIH never funded gain-of-function research at WIV. The claim is contested because it depends on a narrow regulatory definition versus ordinary scientific usage of the term, and because chimeric coronavirus work under EcoHealth subawards is documented.</p>
+<div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07 · Residual: definitional dispute remains live</div>
+</article>
+
+<article class="card">
+<div class="card-header"><span class="id">entity-peter-daszak</span><span class="type">person</span><span class="label True">True</span><span class="residual none">residual: none</span></div>
+<h2>Peter Daszak</h2>
+<p class="summary">Long-time President of EcoHealth Alliance. Principal Investigator on the NIH bat-coronavirus grant that included WIV subawards. Organized the February 2020 Lancet letter. Debarred by HHS (with EcoHealth) in 2024–2025.</p>
+<div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07</div>
+</article>
+
+<article class="card">
+<div class="card-header"><span class="id">org-ecohealth-alliance</span><span class="type">organization</span><span class="label True">True</span><span class="residual none">residual: none</span></div>
+<h2>EcoHealth Alliance</h2>
+<p class="summary">U.S. nonprofit that received NIH grants and issued subawards to the Wuhan Institute of Virology for bat-coronavirus research. Central funding intermediary. Suspended then debarred by HHS in 2024–2025.</p>
+<div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07</div>
+</article>
+
+<article class="card">
+<div class="card-header"><span class="id">facility-wiv</span><span class="type">facility</span><span class="label True">True</span><span class="residual none">residual: none</span></div>
+<h2>Wuhan Institute of Virology (WIV)</h2>
+<p class="summary">Premier Chinese SARS-related coronavirus research center. Operator of mainland China’s first BSL-4 laboratory. Central node because of bat-CoV work, NIH subawards via EcoHealth, and location at the outbreak epicenter.</p>
+<div class="meta">Updated: 2026-07-29 · Location: 30.3764, 114.2625</div>
+</article>
+</section>
+
+<footer>
+Path A preview · SCHEMA-v1 frozen · Operator anonymity preserved · Temporary until full hosting<br/>
+Repo: <a href="https://github.com/Truth-Map/truth-map/tree/main/preview" style="color:#9aa3b2">Truth-Map/truth-map/preview</a>
+</footer>
+</body>
+</html>
