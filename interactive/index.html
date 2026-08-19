@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Truth Map — Interactive</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Truth Map — Interactive</h1>
+    <p class="sub">Phase 3 Path A site · SCHEMA-v1 · data-driven cards · residual status visible · no trackers</p>
+  </header>
+  <section>
+    <h2 class="section-title">Map-ready facilities</h2>
+    <p class="sub" style="margin-bottom:0.6rem">Coordinates from the locked Kepler layer. Full interactive map comes later.</p>
+    <div id="map-list"></div>
+  </section>
+  <div class="controls">
+    <label for="filter-label">Label</label>
+    <select id="filter-label">
+      <option value="all">All</option>
+      <option value="True">True</option>
+      <option value="Likely but Unproven">Likely but Unproven</option>
+      <option value="Contested">Contested</option>
+      <option value="Highly Unlikely">Highly Unlikely</option>
+      <option value="False">False</option>
+    </select>
+    <label for="filter-type">Type</label>
+    <select id="filter-type">
+      <option value="all">All</option>
+      <option value="claim">Claim</option>
+      <option value="event">Event</option>
+      <option value="person">Person</option>
+      <option value="organization">Organization</option>
+      <option value="facility">Facility</option>
+    </select>
+    <button type="button" id="reset">Reset</button>
+    <span id="count"></span>
+  </div>
+  <div id="cards"></div>
+  <footer>
+    SCHEMA-v1 frozen · Operator anonymity preserved ·
+    <a href="https://truth-map.github.io/truth-map/">Main site</a> ·
+    <a href="https://github.com/Truth-Map/truth-map">Source</a><br/>
+    Until this folder is served over HTTP, use the embedded preview:
+    <a href="https://htmlpreview.github.io/?https://github.com/Truth-Map/truth-map/blob/main/preview/site-scaffold.html">preview/site-scaffold.html</a>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
