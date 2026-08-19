@@ -2,7 +2,7 @@
 
 **Status:** Elevated to top-level public area 2026-08-18  
 **Last updated:** 2026-08-18  
-**Residual status:** Core carded set residual-clean at current public depth. Shawn Ryan added. Further candidates deferred under tight-surface rule until clear new Claim/Case need or residual-clean status.
+**Residual status:** Core carded set residual-clean at current public depth. Two comparison pages live. Further candidates deferred under tight-surface rule until clear new Claim/Case need or residual-clean status.
 
 High-reach online voices shape what large audiences believe about COVID origins, vaccines, intelligence, elections, free speech, and institutional trust. Stance changes, funding models, and the ratio of primary-sourced claims versus pure opinion are material signals. This area treats those signals as first-class data.
 
@@ -71,6 +71,7 @@ Side-by-side views let visitors see differences without reading every full card.
 
 **Live comparisons**
 - [Owens × Carlson — Institutional Exit](comparison-owens-carlson.md)
+- [Rogan × Owens — COVID / Origins / Vaccine Density](comparison-rogan-owens-covid.md)
 
 Additional pairs and simple grading layers will be added as the set grows.
 
