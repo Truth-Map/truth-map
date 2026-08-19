@@ -3,137 +3,139 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Truth Map Preview</title>
 <style>
-:root{--bg:#0f1115;--card:#1a1d24;--text:#e6e8ec;--muted:#9aa3b2;--border:#2a2f3a;--true:#2ecc71;--likely:#3498db;--contested:#f1c40f;--unlikely:#e67e22;--false:#e74c3c}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:1.25rem}
-header,section,#cards,footer,.controls{max-width:920px;margin:0 auto 1.15rem}
-h1{font-size:1.4rem;margin:0 0 .25rem}.sub{color:var(--muted);font-size:.9rem}
-.map-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.55rem .85rem;margin-bottom:.35rem;display:flex;flex-wrap:wrap;gap:.45rem;align-items:baseline}
-.name{font-weight:600}.coords{font-family:ui-monospace,monospace;font-size:.8rem;color:var(--muted)}
-.layer{font-size:.68rem;text-transform:uppercase;padding:.08rem .35rem;border-radius:4px;background:#252a35;color:var(--muted)}
-.controls{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center}
-label{color:var(--muted);font-size:.85rem}select,button{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.35rem .6rem;font-size:.9rem}
-button{cursor:pointer}#count{color:var(--muted);font-size:.85rem;margin-left:auto}
-.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem 1.1rem;margin-bottom:.9rem}
-.card-header{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin-bottom:.45rem}
-.id{font-family:ui-monospace,monospace;font-size:.78rem;color:var(--muted)}
-.type{font-size:.68rem;text-transform:uppercase;padding:.1rem .35rem;border-radius:4px;background:#252a35;color:var(--muted)}
-.label{font-size:.72rem;font-weight:600;padding:.15rem .45rem;border-radius:999px;color:#0f1115}
+:root{--bg:#0f1115;--card:#1a1d24;--text:#e6e8ec;--muted:#9aa3b2;--border:#2a2f3a;--true:#2ecc71;--contested:#f1c40f;--false:#e74c3c}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:1.2rem}
+header,section,#cards,footer,.controls{max-width:920px;margin:0 auto 1.1rem}
+h1{font-size:1.35rem;margin:0 0 .2rem}.sub{color:var(--muted);font-size:.88rem}
+.map-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.5rem .8rem;margin-bottom:.3rem;display:flex;flex-wrap:wrap;gap:.4rem;align-items:baseline}
+.name{font-weight:600}.coords{font-family:ui-monospace,monospace;font-size:.78rem;color:var(--muted)}
+.layer{font-size:.65rem;text-transform:uppercase;padding:.08rem .3rem;border-radius:4px;background:#252a35;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+label{color:var(--muted);font-size:.82rem}select,button{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.3rem .55rem;font-size:.88rem}
+button{cursor:pointer}#count{color:var(--muted);font-size:.82rem;margin-left:auto}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.95rem 1.05rem;margin-bottom:.85rem}
+.card-header{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:.4rem}
+.id{font-family:ui-monospace,monospace;font-size:.75rem;color:var(--muted)}
+.type{font-size:.65rem;text-transform:uppercase;padding:.08rem .3rem;border-radius:4px;background:#252a35;color:var(--muted)}
+.label{font-size:.7rem;font-weight:600;padding:.12rem .4rem;border-radius:999px;color:#0f1115}
 .label.True{background:var(--true)}.label.Contested{background:var(--contested)}.label.False{background:var(--false)}
-.label.Likely{background:var(--likely)}.label.Unlikely{background:var(--unlikely)}
-.residual{font-size:.72rem;color:var(--muted);margin-left:auto}.residual.parked{color:#f1c40f}
-h2{font-size:1.02rem;margin:0 0 .3rem}.summary{color:#c5cad3;font-size:.9rem;margin:0 0 .5rem}
-.evidence{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin:.55rem 0;font-size:.84rem}
+.residual{font-size:.7rem;color:var(--muted);margin-left:auto}.residual.parked{color:#f1c40f}
+h2{font-size:1rem;margin:0 0 .25rem}.summary{color:#c5cad3;font-size:.88rem;margin:0 0 .45rem}
+.evidence{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.5rem 0;font-size:.82rem}
 @media(max-width:640px){.evidence{grid-template-columns:1fr}}
-.evidence h3{font-size:.7rem;text-transform:uppercase;margin:0 0 .25rem;color:var(--muted)}
+.evidence h3{font-size:.68rem;text-transform:uppercase;margin:0 0 .2rem;color:var(--muted)}
 .for h3{color:var(--true)}.against h3{color:var(--false)}
-.evidence ul{margin:0;padding-left:1.05rem;color:#c5cad3}.evidence li{margin-bottom:.25rem}
-.meta{font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.45rem;display:flex;flex-wrap:wrap;gap:.75rem}
-.links span{display:inline-block;margin:.12rem .25rem .12rem 0;padding:.1rem .32rem;background:#252a35;border-radius:4px;color:#a0aec0;font-size:.78rem}
-footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.75rem}
-a{color:#9aa3b2}
+.evidence ul{margin:0;padding-left:1rem;color:#c5cad3}.evidence li{margin-bottom:.2rem}
+.meta{font-size:.75rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.4rem}
+.links span{display:inline-block;margin:.1rem .2rem .1rem 0;padding:.08rem .28rem;background:#252a35;border-radius:4px;color:#a0aec0;font-size:.75rem}
+footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.7rem}a{color:#9aa3b2}
 </style></head><body>
 <header>
 <h1>Truth Map — Preview</h1>
-<p class="sub">SCHEMA-v1 · five-term labels · residual status visible · no trackers · Path A build</p>
+<p class="sub">SCHEMA-v1 · five-term labels · residual status · no trackers · Path A build</p>
 </header>
 <section>
-<h2 style="font-size:1.05rem;color:#c5cad3;margin:0 0 .5rem">Map-ready facilities</h2>
-<p class="sub" style="margin-bottom:.6rem">Coordinates from the locked Kepler layer. Full interactive map comes with hosting.</p>
-<div class="map-item"><span class="name">Wuhan Institute of Virology (WIV)</span><span class="layer">High-Containment Labs</span><span class="coords">30.3764, 114.2625</span></div>
-<div class="map-item"><span class="name">USAMRIID / Fort Detrick</span><span class="layer">High-Containment Labs</span><span class="coords">39.438, -77.4234</span></div>
-<div class="map-item"><span class="name">Galveston National Laboratory</span><span class="layer">High-Containment Labs</span><span class="coords">29.3105, -94.775</span></div>
-<div class="map-item"><span class="name">NEIDL (Boston University)</span><span class="layer">High-Containment Labs</span><span class="coords">42.3365, -71.0725</span></div>
-<div class="map-item"><span class="name">CDC Atlanta High-Containment</span><span class="layer">High-Containment Labs</span><span class="coords">33.799, -84.328</span></div>
-<div class="map-item"><span class="name">NIAID IRF-Frederick / cluster</span><span class="layer">High-Containment Labs</span><span class="coords">39.44, -77.42</span></div>
+<h2 style="font-size:1rem;color:#c5cad3;margin:0 0 .4rem">Map-ready facilities</h2>
+<p class="sub" style="margin-bottom:.5rem">Coordinates from the locked Kepler layer.</p>
+<div class="map-item"><span class="name">Wuhan Institute of Virology (WIV)</span><span class="layer">High-Containment</span><span class="coords">30.3764, 114.2625</span></div>
+<div class="map-item"><span class="name">USAMRIID / Fort Detrick</span><span class="layer">High-Containment</span><span class="coords">39.438, -77.4234</span></div>
+<div class="map-item"><span class="name">Galveston National Laboratory</span><span class="layer">High-Containment</span><span class="coords">29.3105, -94.775</span></div>
+<div class="map-item"><span class="name">NEIDL (Boston)</span><span class="layer">High-Containment</span><span class="coords">42.3365, -71.0725</span></div>
+<div class="map-item"><span class="name">CDC Atlanta</span><span class="layer">High-Containment</span><span class="coords">33.799, -84.328</span></div>
 </section>
 <div class="controls">
 <label>Label</label>
-<select id="fl"><option value="all">All</option><option value="True">True</option><option value="Contested">Contested</option><option value="False">False</option><option value="Likely but Unproven">Likely but Unproven</option></select>
+<select id="fl"><option value="all">All</option><option value="True">True</option><option value="Contested">Contested</option><option value="False">False</option></select>
 <label>Type</label>
 <select id="ft"><option value="all">All</option><option value="claim">Claim</option><option value="person">Person</option><option value="organization">Organization</option><option value="facility">Facility</option></select>
 <button type="button" id="reset">Reset</button>
 <span id="count"></span>
 </div>
 <div id="cards">
+
 <article class="card" data-label="False" data-type="claim">
 <div class="card-header"><span class="id">C-02</span><span class="type">claim</span><span class="label False">False</span><span class="residual none">residual: none</span></div>
 <h2>The COVID lab-leak idea is just a conspiracy theory</h2>
-<p class="summary">In early 2020 major journals, officials, and platforms treated the laboratory-origin hypothesis for SARS-CoV-2 as a fringe conspiracy theory. Private contemporaneous records show leading scientists took laboratory scenarios seriously at the same time.</p>
-<div class="evidence"><div class="for"><h3>Evidence for</h3><ul><li>Very little primary scientific evidence in February–March 2020 forced the conclusion that laboratory origin was fringe.</li></ul></div><div class="against"><h3>Evidence against</h3><ul><li>WIV was already known to conduct research on bat SARS-related coronaviruses, including genetic manipulation, with U.S. funding via EcoHealth.</li><li>Early private scientific discussion (Andersen email; 1 Feb 2020 call) took laboratory scenarios seriously; Fauci’s diary confirms this.</li><li>U.S. Intelligence Community never treated lab origin as fringe (ODNI 2021).</li><li>No definitive intermediate host has been identified despite years of searching.</li></ul></div></div>
+<p class="summary">In early 2020 major journals, officials, and platforms treated the laboratory-origin hypothesis as a fringe conspiracy theory. Private contemporaneous records (including Fauci’s diary) show leading scientists took laboratory scenarios seriously at the same time.</p>
+<div class="evidence"><div class="for"><h3>Evidence for</h3><ul><li>Very little primary scientific evidence in Feb–Mar 2020 forced the conclusion that lab origin was fringe.</li></ul></div><div class="against"><h3>Evidence against</h3><ul><li>WIV conducted bat SARS-related coronavirus research including genetic manipulation, with U.S. funding via EcoHealth.</li><li>Early private scientific discussion took lab scenarios seriously; Fauci’s diary confirms this.</li><li>U.S. IC never treated lab origin as fringe (ODNI 2021).</li><li>No definitive intermediate host identified despite years of searching.</li></ul></div></div>
 <div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07</div>
 </article>
+
 <article class="card" data-label="Contested" data-type="claim">
-<div class="card-header"><span class="id">C-03</span><span class="type">claim</span><span class="label Contested">Contested</span><span class="residual parked">residual: parked — Definitional dispute remains live.</span></div>
+<div class="card-header"><span class="id">C-03</span><span class="type">claim</span><span class="label Contested">Contested</span><span class="residual parked">residual: parked — definitional dispute remains live</span></div>
 <h2>NIH has not ever and does not now fund gain-of-function research at the Wuhan Institute of Virology</h2>
-<p class="summary">Fauci and NIH stated that NIH never funded gain-of-function research at WIV. The claim is contested because it depends on a narrow regulatory definition versus ordinary scientific usage, and because chimeric coronavirus work under EcoHealth subawards is documented.</p>
-<div class="evidence"><div class="for"><h3>Evidence for</h3><ul><li>NIH applied a specific regulatory definition tied to the 2014–2017 funding pause and later HHS P3CO framework.</li><li>Published genomic analyses conclude the bat SARSr-CoVs studied under the grant are genetically distant from SARS-CoV-2.</li></ul></div><div class="against"><h3>Evidence against</h3><ul><li>Documented construction of chimeric coronaviruses under EcoHealth → WIV subawards, including testing in human cells and humanized mice.</li><li>Ordinary scientific usage of gain-of-function covers deliberate creation of viruses with enhanced ability to infect human cells.</li><li>Congressional and later HHS actions (suspension then debarment of EcoHealth) cited material non-compliance around the same work.</li><li>The 2018 DEFUSE proposal from the same network proposed further enhancement work including human-specific cleavage sites.</li></ul></div></div>
+<p class="summary">Fauci and NIH stated NIH never funded GOF at WIV. Contested because it depends on a narrow regulatory definition versus ordinary scientific usage, and chimeric coronavirus work under EcoHealth subawards is documented.</p>
+<div class="evidence"><div class="for"><h3>Evidence for</h3><ul><li>NIH applied a specific regulatory definition tied to the 2014–2017 funding pause and later HHS P3CO framework.</li><li>Studied bat SARSr-CoVs are genetically distant from SARS-CoV-2.</li></ul></div><div class="against"><h3>Evidence against</h3><ul><li>Documented chimeric coronavirus construction under EcoHealth → WIV subawards.</li><li>Ordinary scientific usage of GOF covers enhancement of human-cell infectivity.</li><li>HHS later suspended and debarred EcoHealth for compliance failures around this work.</li><li>2018 DEFUSE proposal from the same network proposed further enhancement work.</li></ul></div></div>
 <div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07</div>
 </article>
-<article class="card" data-label="False" data-type="claim">
-<div class="card-header"><span class="id">C-04</span><span class="type">claim</span><span class="label False">False</span><span class="residual none">residual: none</span></div>
-<h2>The 51 Intelligence Community members letter was just expert opinion</h2>
-<p class="summary">The public framing that the 51 former intelligence officials letter on the Hunter Biden laptop was merely neutral expert opinion is false/misleading given the coordinated nature, political timing, and later admissions about its purpose and effect.</p>
-<div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07</div>
-</article>
-<article class="card" data-label="False" data-type="claim">
-<div class="card-header"><span class="id">C-05</span><span class="type">claim</span><span class="label False">False</span><span class="residual none">residual: none</span></div>
-<h2>Gavin Newsom is Nancy Pelosi’s nephew</h2>
-<p class="summary">Widely circulated claim that Gavin Newsom is Nancy Pelosi’s nephew. No primary genealogical support; a distant dissolved marital link exists and is already documented. Label: False.</p>
-<div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07</div>
-</article>
-<article class="card" data-label="Contested" data-type="claim">
-<div class="card-header"><span class="id">C-06</span><span class="type">claim</span><span class="label Contested">Contested</span><span class="residual none">residual: none</span></div>
-<h2>The 2016 Russia investigation was a manufactured hoax and treasonous conspiracy</h2>
-<p class="summary">Strong public claim that Crossfire Hurricane / the Russia investigation was a fully manufactured hoax and treasonous conspiracy. Process failures and political bias are documented; the full criminal-conspiracy framing remains contested.</p>
-<div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07</div>
-</article>
+
 <article class="card" data-label="True" data-type="person">
 <div class="card-header"><span class="id">entity-peter-daszak</span><span class="type">person</span><span class="label True">True</span><span class="residual none">residual: none</span></div>
 <h2>Peter Daszak</h2>
-<p class="summary">British zoologist and long-time President of EcoHealth Alliance. Principal Investigator on the NIH bat-coronavirus grant that included subawards to WIV. Organized the February 2020 Lancet letter. Debarred by HHS (with EcoHealth) in 2024–2025.</p>
+<p class="summary">Long-time President of EcoHealth Alliance. PI on the NIH bat-coronavirus grant that included WIV subawards. Organized the February 2020 Lancet letter. Debarred by HHS (with EcoHealth) in 2024–2025.</p>
 <div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07</div>
+<div class="links"><span>org-ecohealth-alliance</span><span>facility-wiv</span><span>C-02</span><span>C-03</span></div>
 </article>
+
+<article class="card" data-label="True" data-type="person">
+<div class="card-header"><span class="id">entity-jeremy-farrar</span><span class="type">person</span><span class="label True">True</span><span class="residual none">residual: none</span></div>
+<h2>Jeremy Farrar</h2>
+<p class="summary">British clinician-scientist; Director of Wellcome Trust (2013–2023); WHO Chief Scientist from 2023. Central convenor of the early Feb 2020 origins calls that preceded Proximal Origin and the Lancet letter.</p>
+<div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07</div>
+<div class="links"><span>org-wellcome-trust</span><span>C-02</span><span>entity-peter-daszak</span><span>facility-wiv</span></div>
+</article>
+
 <article class="card" data-label="True" data-type="organization">
 <div class="card-header"><span class="id">org-ecohealth-alliance</span><span class="type">organization</span><span class="label True">True</span><span class="residual none">residual: none</span></div>
 <h2>EcoHealth Alliance</h2>
-<p class="summary">U.S. 501(c)(3) nonprofit that received NIH/NIAID grants for bat-coronavirus research and issued subawards to the Wuhan Institute of Virology. Central funding intermediary. Suspended then debarred by HHS in 2024–2025.</p>
+<p class="summary">U.S. nonprofit that received NIH grants and issued subawards to WIV for bat-coronavirus research. Central funding intermediary. Suspended then debarred by HHS in 2024–2025.</p>
 <div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07</div>
 </article>
+
+<article class="card" data-label="True" data-type="organization">
+<div class="card-header"><span class="id">org-wellcome-trust</span><span class="type">organization</span><span class="label True">True</span><span class="residual none">residual: none</span></div>
+<h2>Wellcome Trust</h2>
+<p class="summary">Independent global charitable foundation (London). One of the world’s largest non-governmental biomedical funders. Jeremy Farrar was Director 2013–2023 and a central convenor of the early Feb 2020 origins calls while in that role.</p>
+<div class="meta">Updated: 2026-07-28 · Evidence window: 2026-07</div>
+<div class="links"><span>entity-jeremy-farrar</span><span>C-02</span></div>
+</article>
+
 <article class="card" data-label="True" data-type="facility">
 <div class="card-header"><span class="id">facility-wiv</span><span class="type">facility</span><span class="label True">True</span><span class="residual none">residual: none</span></div>
 <h2>Wuhan Institute of Virology (WIV)</h2>
 <p class="summary">Premier Chinese SARS-related coronavirus research center and operator of mainland China’s first BSL-4 laboratory. Central node because of bat-CoV work, NIH subawards via EcoHealth, and location at the outbreak epicenter.</p>
-<div class="meta">Updated: 2026-07-29 · Evidence window: 2026-07 · Location: 30.3764, 114.2625</div>
+<div class="meta">Updated: 2026-07-29 · Location: 30.3764, 114.2625</div>
 </article>
+
 <article class="card" data-label="True" data-type="facility">
 <div class="card-header"><span class="id">facility-usamriid-fort-detrick</span><span class="type">facility</span><span class="label True">True</span><span class="residual none">residual: none</span></div>
 <h2>USAMRIID / Fort Detrick</h2>
-<p class="summary">U.S. Army BSL-4 laboratory at Fort Detrick. Primary U.S. military comparative high-containment node to WIV. Defensive biodefense mission; Amerithrax role; 2019 CDC select-agent suspension.</p>
+<p class="summary">U.S. Army BSL-4 laboratory at Fort Detrick. Primary U.S. military comparative high-containment node to WIV.</p>
 <div class="meta">Updated: 2026-07-29 · Location: 39.438, -77.4234</div>
 </article>
+
 <article class="card" data-label="True" data-type="facility">
 <div class="card-header"><span class="id">facility-galveston-national-laboratory</span><span class="type">facility</span><span class="label True">True</span><span class="residual none">residual: none</span></div>
-<h2>Galveston National Laboratory (UTMB)</h2>
-<p class="summary">NIAID National Biocontainment Laboratory. BSL-4. Documented formal collaboration, training, and MoU with WIV including a memory-hole provision.</p>
+<h2>Galveston National Laboratory</h2>
+<p class="summary">NIAID National Biocontainment Laboratory. BSL-4. Documented formal collaboration and MoU with WIV including a memory-hole provision.</p>
 <div class="meta">Updated: 2026-07-29 · Location: 29.3105, -94.775</div>
 </article>
+
 </div>
 <footer>
-Path A preview · SCHEMA-v1 frozen · Operator anonymity preserved · Temporary until full hosting<br/>
-<a href="https://github.com/Truth-Map/truth-map/tree/main/preview">github.com/Truth-Map/truth-map/preview</a>
+Path A preview · SCHEMA-v1 frozen · Operator anonymity preserved<br/>
+<a href="https://truth-map.github.io/truth-map/">Main site</a> ·
+<a href="https://github.com/Truth-Map/truth-map/tree/main/preview">preview source</a>
 </footer>
 <script>
 function apply(){
   const L=document.getElementById('fl').value, T=document.getElementById('ft').value;
   let n=0;
   document.querySelectorAll('#cards .card').forEach(el=>{
-    const okL = L==='all' || el.dataset.label===L;
-    const okT = T==='all' || el.dataset.type===T;
-    const show = okL && okT;
-    el.style.display = show ? '' : 'none';
-    if(show) n++;
+    const show=(L==='all'||el.dataset.label===L)&&(T==='all'||el.dataset.type===T);
+    el.style.display=show?'':'none'; if(show)n++;
   });
-  document.getElementById('count').textContent = n + ' cards';
+  document.getElementById('count').textContent=n+' cards';
 }
 document.getElementById('fl').onchange=apply;
 document.getElementById('ft').onchange=apply;
