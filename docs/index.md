@@ -87,4 +87,8 @@
 4. No doxxing, no illegal material, no speculation as fact  
 5. Contributions welcome and reviewed  
 
+### Residual status (2026-08-18)
+
+High-visibility modules residual-clean at current public-primary depth include Influencers & Digital Narrative (elevated), Epstein foundation + financial surface, Clinton Network core facts, Mockingbird documented layer, stock-trading core, and Iran / Axis-Proxy modules. Open residuals (full 2008 Clinton MOU PDF, systematic Epstein Transparency Act extraction, etc.) remain tracked in the research knowledge base and are shown with status labels rather than hidden.
+
 **Source of truth:** [GitHub](https://github.com/Truth-Map/truth-map)
