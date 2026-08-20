@@ -20,6 +20,18 @@ We are building a living, public, multi-user research instrument. The quality of
 5. No doxxing, no illegal material, no pure speculation presented as fact.
 6. Public contributions welcome; reviewed against these standards.
 
+## Tools we use
+
+The research process uses several structured methods to keep density visible without becoming narrative and to keep residual status honest:
+
+- **Pattern Inspector (P.I.)** — density pass on documented edges
+- **Five-term evidence labels** — True / Likely but Unproven / Contested / Highly Unlikely / False
+- **Layered Assessment Method** — keeps documented fact, institutional inference, pattern hypothesis, and stronger agent claims in separate layers
+- **Narrative Source Residual Process** — Source → Birds on the wire → Money/Power/Fame → Coordination signals
+- **Dating & Evidence Window Standard** — Last updated + Evidence window / As-of on every material card
+
+Full descriptions: **[Tools we use](tools.md)**.
+
 ## Sensitive and “dark” topics
 
 We do not ignore crime or high-virality narratives. We do not turn this into a graphic dump or horror gallery.
@@ -40,6 +52,6 @@ We do not ignore crime or high-virality narratives. We do not turn this into a g
 
 Not a conspiracy echo chamber. Not a trauma gallery. A structured tool for maximum verifiability.
 
-Open residuals are shown with status labels rather than hidden. The public surface stays deliberately slim; full evidence packages and working files live in the research knowledge base.
+Open residuals are shown with status labels rather than hidden. The public surface stays deliberately residual-gated; full evidence packages and working files live in the research knowledge base.
 
-See also: [What is locked](what-is-locked.md) · [Architecture](architecture.md) · [Gatekeeping](gatekeeping.md).
+See also: [Tools we use](tools.md) · [What is locked](what-is-locked.md) · [Architecture](architecture.md) · [Gatekeeping](gatekeeping.md).

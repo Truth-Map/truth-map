@@ -112,6 +112,12 @@
 5. No doxxing, no illegal material, no speculation as fact  
 6. Contributions welcome and reviewed  
 
+### Residual status (2026-08-20)
+
+High-visibility modules residual-cleaned at current public-primary depth include COVID-origins core, Epstein network foundation + financial residuals, Clinton Network, Mockingbird / media influence, stock-trading / financial-influence core, Influencers hub, Iran / Axis-Proxy modules, and the Pattern Inspector production runs across ten major clusters. Contested material remains clearly labeled. Open residuals (full 2008 Clinton MOU PDF, systematic Epstein Transparency Act extraction, etc.) stay visible rather than hidden.
+
+See [Tools we use](about/tools.md) for the methods that keep residual status honest.
+
 ### Hosting (Path A)
 
 Public surface is static on **GitHub Pages** (`truth-map.github.io/truth-map`). No required accounts for readers. No third-party trackers on the interactive tools. Custom domain remains optional.
