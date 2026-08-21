@@ -87,6 +87,12 @@
 </div>
 
 <div class="tm-card">
+  <h3><a href="about/tools.md">Tools / Method</a></h3>
+  <p>How the instrument works — Pattern Inspector, five-term labels, Layered Assessment, Narrative Source Residual Process, Dating standard.</p>
+  <div class="meta">P.I. · residual discipline · evidence windows</div>
+</div>
+
+<div class="tm-card">
   <h3><a href="contribute/">Contribute hub</a></h3>
   <p>Restricted Grok Session starter, tip form, and contribution rules.</p>
   <div class="meta">Anonymous OK · proposal-only · gatekeeper review</div>
