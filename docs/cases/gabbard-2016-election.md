@@ -1,7 +1,9 @@
 # Case: Gabbard Declassification — 2016 Election / “Manufactured Russia Hoax” Materials
 
 **Status:** Lev2 · Medium–High relevance to IC narrative-management tracking  
-**Completeness:** ~84%
+**Completeness:** ~84%  
+**Last updated:** 2026-08-20  
+**Residual status:** Residual-clean at current public-primary depth. Analytic disagreements, process criticisms, and political-level involvement in the ICA process are documented. Strongest framings (“treasonous conspiracy,” “coup”) remain Contested (tracked as Claim C-06). Re-open only on new primary.
 
 ---
 
@@ -15,7 +17,7 @@ Official characterizations used language such as “manufactured and politicized
 
 | Label | Content |
 |-------|---------|
-| **Confirmed** | Analytic disagreements, process criticisms, and political-level involvement in the ICA process are documented in the released materials |
+| **True** | Analytic disagreements, process criticisms, and political-level involvement in the ICA process are documented in the released materials |
 | **Contested** | Strongest framings (“treasonous conspiracy,” “coup,” directed manufacture of a false assessment) — treated as interpretive overlays; tracked as Claim **C-06** |
 | **Value** | Useful for IC assessment-process / politicization pattern already examined in the 51-letter cluster |
 
@@ -23,3 +25,4 @@ Official characterizations used language such as “manufactured and politicized
 
 - Claim C-06 (strongest “manufactured Russia hoax / treasonous conspiracy” framing)  
 - 51-letter / C-01 / C-04 cluster  
+- Pattern Inspector residual (Crossfire Hurricane + Gabbard 2016) completed 2026-08-20  

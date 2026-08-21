@@ -2,8 +2,8 @@
 
 **Status:** Foundational core documented · Continuity claims Contested  
 **Date range:** Core operation Mar–Jun 1963; broader relationships ~1948–late 1970s; continuity claims to present Contested  
-**Last updated:** 2026-08-05  
-**Residual status:** Documented 1963 wiretaps + Church Committee / Bernstein journalist relationships residual-clean at current public-primary depth. Continuity claims (“never ended” / modern formal control) remain Contested — no new primary post-1977 material has moved the label. See C-11.
+**Last updated:** 2026-08-20  
+**Residual status:** Documented 1963 wiretaps + Church Committee / Bernstein journalist relationships residual-clean at current public-primary depth. Continuity claims (“never ended” / modern formal control) remain Contested — no new primary post-1977 material has moved the label. See C-11. Pattern Inspector media/Mockingbird run completed 2026-08-20.
 
 ---
 

@@ -2,7 +2,9 @@
 
 Decentralized political-conspiracy movement that emerged from anonymous imageboard posts in 2017. Core claim: Donald Trump wages a secret war against a global elite trafficking / “deep state” cabal; “Q” drops are framed as insider intelligence. The movement had real political and social effects. Many of its specific predictions failed.
 
-**Media rule:** Text only. No graphic “proof” imagery.
+**Media rule:** Text only. No graphic “proof” imagery.  
+**Last updated:** 2026-08-20  
+**Residual status:** Foundational Case residual-clean at current public-primary depth. C-16 (“Q as genuine government/military insider”) remains Highly Unlikely. Authorship residual (early Furber → later Watkins) and prediction hygiene locked. Pattern Inspector QAnon run completed 2026-08-20. Re-open only on new primary.
 
 ---
 
@@ -11,7 +13,7 @@ Decentralized political-conspiracy movement that emerged from anonymous imageboa
 | Proposition | Label |
 |-------------|-------|
 | Real mass online movement with political impact | **True** |
-| “Q” verified as a military intelligence officer | **Unsupported** |
+| “Q” verified as a military intelligence officer | **Unsupported** / **Highly Unlikely** |
 | “Storm” / mass arrests occurred as predicted | **False** |
 | Trump clearly and repeatedly repudiated QAnon as false (through 2020 peak) | **False** as description of the public record |
 | Trump authored the Q drops | **Unsupported** |
