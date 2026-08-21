@@ -2,8 +2,8 @@
 
 **Status:** ~90% · Lev2 for current scope  
 **Focus:** PTR patterns, household trading, STOCK Act record, reform proposals  
-**Last updated:** 2026-08-05  
-**Residual status:** Core PTR patterns, 2020 Senate COVID-trade inquiries (closed without charges), Tuberville late-filing cluster, and 2026 House passage of H.R. 7008 residual-clean at current public depth. C-07 Pelosi household remains Contested (no primary specific-info→trade chain). Enactment of any ownership-ban bill still open.
+**Last updated:** 2026-08-20  
+**Residual status:** Core PTR patterns, 2020 Senate COVID-trade inquiries (closed without charges), Tuberville late-filing cluster, and 2026 House passage of H.R. 7008 residual-clean at current public depth. C-07 Pelosi household remains Contested (no primary specific-info→trade chain / F1-watch). C-08 systematic pattern Contested. C-09 enforcement inadequacy True. C-10 aggregate edge Likely but Unproven. Enactment of any ownership-ban bill still open. Pattern Inspector stock-trading run completed 2026-08-20.
 
 ## Summary
 
